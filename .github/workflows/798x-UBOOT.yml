@@ -10,8 +10,8 @@ on:
 env:
   GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
   WRT_TARGET: MTK-798x
-  WRT_REPO: https://github.com/hanwckf/bl-mt798x.git
-  WRT_BRANCH: master
+  WRT_REPO: https://github.com/1715173329/bl-mt798x-oss.git
+  WRT_BRANCH: atf-2025
 
 permissions: write-all
 
@@ -36,7 +36,7 @@ jobs:
       fail-fast: false
       #max-parallel: 4
       matrix:
-        WRT_ATF: [atf-20220606-637ba581b, atf-20231013-0ea67d76a]
+        WRT_ATF: [atf-20220606-637ba581b, atf-20250212-e09077068]
         WRT_MTK: [uboot-mtk-20220606, uboot-mtk-20230718-09eda825]
 
     steps:
