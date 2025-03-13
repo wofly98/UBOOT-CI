@@ -99,7 +99,7 @@ jobs:
       - name: Compile Firmware
         run: |
           cd ./wrt/
-
+          ls -l
           $GITHUB_WORKSPACE/Uboots.sh
 
       - name: Machine Information
