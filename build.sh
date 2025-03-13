@@ -70,7 +70,7 @@ fi
 
 echo "Build atf..."
 if [ -e "pll.c" ]; then
-	cp pll.c $ATF_DIR/atf-20250212-e09077068/plat/mediatek/mt7981/drivers/pll/ -f
+	cp pll.c $ATF_DIR/plat/mediatek/mt7981/drivers/pll/ -f
 	echo  updated pll.c
 fi
 
@@ -86,6 +86,11 @@ make -C "$ATF_DIR" -f "$ATF_MKFILE" all CONFIG_CROSS_COMPILER="$TOOLCHAIN" BL33=
 
 find $ATF_DIR/build/
 mkdir -p "output"
+if [ -f "$ATF_DIR/build/$SOC/release/bl2.bin" ]; then
+	BL2ORI_NAME="${SOC}_${BOARD}-bl2-origin"
+	cp -f "$ATF_DIR/build/$SOC/release/bl2.bin" "output/$BL2ORI_NAME.bin"
+fi
+
 if [ -f "$ATF_DIR/build/$SOC/release/fip.bin" ]; then
 	FIP_NAME="${SOC}_${BOARD}-fip"
 	if [ "$fixedparts" = "1" ]; then
