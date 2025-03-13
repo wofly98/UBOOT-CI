@@ -71,6 +71,7 @@ fi
 echo "Build atf..."
 if [ -e "pll.c" ]; then
 	cp pll.c $ATF_DIR/atf-20250212-e09077068/plat/mediatek/mt7981/drivers/pll/ -f
+	echo  updated pll.c
 fi
 
 if [ -e "$ATF_DIR/makefile" ]; then
@@ -83,6 +84,7 @@ rm -rf "$ATF_DIR/build"
 make -C "$ATF_DIR" -f "$ATF_MKFILE" "$ATF_CFG" CONFIG_CROSS_COMPILER="$TOOLCHAIN"
 make -C "$ATF_DIR" -f "$ATF_MKFILE" all CONFIG_CROSS_COMPILER="$TOOLCHAIN" BL33="../$UBOOT_DIR/u-boot.bin" -j $(nproc)
 
+find $ATF_DIR/build/
 mkdir -p "output"
 if [ -f "$ATF_DIR/build/$SOC/release/fip.bin" ]; then
 	FIP_NAME="${SOC}_${BOARD}-fip"
