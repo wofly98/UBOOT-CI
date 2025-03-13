@@ -129,9 +129,9 @@ jobs:
           zip -r ./upload/"$WRT_AUTHOR"_"$WRT_VER"_"$WRT_DATE".zip ./upload/*.*
 
       - name: 上传固件到github
-        uses: actions/upload-artifact@main
+        uses: actions/upload-artifact@v4
         with:
-          name: *
+          name: *.*
           path: ./wrt/upload/
         
 #      - name: Release Firmware
