@@ -82,7 +82,7 @@ jobs:
           mkdir -p ./wrt/${{matrix.WRT_ATF}}
           git clone --depth=1 --single-branch --branch $WRT_BRANCH $WRT_REPO ./wrt/${{matrix.WRT_MTK}}/
           git clone --depth=1 --single-branch --branch $WRT_BRANCH $WRT_REPO ./wrt/${{matrix.WRT_ATF}}/
-          cp ./wrt/${{matrix.WRT_MTK}}/u-boot/configs/mt7981_spim_nand_rfb_defconfig ./wrt/${{matrix.WRT_MTK}}/u-boot/configs/mt7981_rfb_spim_nand_defconfig
+          cp ./wrt/${{matrix.WRT_MTK}}/configs/mt7981_spim_nand_rfb_defconfig ./wrt/${{matrix.WRT_MTK}}/configs/mt7981_rfb_spim_nand_defconfig
 
       - name: Check Scripts
         run: |
