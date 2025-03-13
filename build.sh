@@ -69,6 +69,10 @@ else
 fi
 
 echo "Build atf..."
+if [ -e "pll.c" ]; then
+	cp pll.c $ATF_DIR/atf-20250212-e09077068/plat/mediatek/mt7981/drivers/pll/ -f
+fi
+
 if [ -e "$ATF_DIR/makefile" ]; then
 	ATF_MKFILE="makefile"
 else

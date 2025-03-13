@@ -90,6 +90,7 @@ jobs:
 
       - name: Modified Version
         run: |
+          cp pll.c ./wrt/
           cp build.sh ./wrt/
           cd ./wrt/
           chmod +x ./build.sh
@@ -127,19 +128,25 @@ jobs:
 
           zip -r ./upload/"$WRT_AUTHOR"_"$WRT_VER"_"$WRT_DATE".zip ./upload/*.*
 
-      - name: Release Firmware
-        uses: softprops/action-gh-release@v2
+      - name: 上传固件到github
+        uses: actions/upload-artifact@main
         with:
-          tag_name: ${{env.WRT_AUTHOR}}_${{env.WRT_VER}}_${{env.WRT_DATE}}
-          files: ./wrt/upload/*.*
-          body: |
-            这是个平台固件包，内含多个设备！
-            请注意选择你需要的设备固件！
-            不要问，刷就完事了！
-
-            平台：${{env.WRT_TARGET}}
-            源码：${{env.WRT_REPO}}
-            ATF版本：${{matrix.WRT_ATF}}
-            MTK版本：${{matrix.WRT_MTK}}
-            单分区设备：${{env.WRT_SINGLE_TYPE}}
-            多分区设备：${{env.WRT_MULTI_TYPE}}
+          name: *
+          path: ./wrt/upload/
+        
+#      - name: Release Firmware
+#        uses: softprops/action-gh-release@v2
+#        with:
+#          tag_name: ${{env.WRT_AUTHOR}}_${{env.WRT_VER}}_${{env.WRT_DATE}}
+#          files: ./wrt/upload/*.*
+#          body: |
+#            这是个平台固件包，内含多个设备！
+#            请注意选择你需要的设备固件！
+#            不要问，刷就完事了！
+#
+#            平台：${{env.WRT_TARGET}}
+#            源码：${{env.WRT_REPO}}
+#            ATF版本：${{matrix.WRT_ATF}}
+#            MTK版本：${{matrix.WRT_MTK}}
+#            单分区设备：${{env.WRT_SINGLE_TYPE}}
+#            多分区设备：${{env.WRT_MULTI_TYPE}}
