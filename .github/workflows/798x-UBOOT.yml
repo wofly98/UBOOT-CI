@@ -131,8 +131,8 @@ jobs:
       - name: 上传固件到github
         uses: actions/upload-artifact@v4
         with:
-          name: *.*
-          path: ./wrt/upload/
+          name: package
+          path: ./wrt/upload/*
         
 #      - name: Release Firmware
 #        uses: softprops/action-gh-release@v2
