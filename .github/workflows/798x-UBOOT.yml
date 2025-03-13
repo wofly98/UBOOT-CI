@@ -89,8 +89,9 @@ jobs:
 
       - name: Modified Version
         run: |
+          cp build.sh ./wrt/
           cd ./wrt/
-
+          chmod +x ./build.sh
           sed -i "5s/UBOOT_DIR=.*/UBOOT_DIR=${{matrix.WRT_MTK}}/" ./build.sh
           sed -i "7s/ATF_DIR=.*/ATF_DIR=${{matrix.WRT_ATF}}/" ./build.sh
 
