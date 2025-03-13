@@ -66,11 +66,12 @@ else
 	exit 1
 fi
 
+ls -l $ATF_DIR
 echo "Build atf..."
-make -C "$ATF_DIR" -f makefile "$ATF_CFG" CONFIG_CROSS_COMPILER="${TOOLCHAIN}"
-make -C "$ATF_DIR" -f makefile clean CONFIG_CROSS_COMPILER="${TOOLCHAIN}"
+make -C "$ATF_DIR" -f Makefile "$ATF_CFG" CONFIG_CROSS_COMPILER="${TOOLCHAIN}"
+make -C "$ATF_DIR" -f Makefile clean CONFIG_CROSS_COMPILER="${TOOLCHAIN}"
 rm -rf "$ATF_DIR/build"
-make -C "$ATF_DIR" -f makefile all CONFIG_CROSS_COMPILER="${TOOLCHAIN}"
+make -C "$ATF_DIR" -f Makefile all CONFIG_CROSS_COMPILER="${TOOLCHAIN}"
 
 mkdir -p "output"
 if [ -f "$ATF_DIR/build/${SOC}/release/fip.bin" ]; then
