@@ -132,7 +132,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: package
-          path: ./wrt/upload/*
+          path: ./wrt/upload/*.bin
         
 #      - name: Release Firmware
 #        uses: softprops/action-gh-release@v2
