@@ -35,6 +35,9 @@ for file in "$ATF_DIR/configs/$ATF_CFG" "$UBOOT_DIR/configs/$UBOOT_CFG"; do
 done
 
 sed -i '$a _RAM_BOOT_RAM_BOOT_UART_DL=y'  $ATF_DIR/configs/$ATF_CFG
+sed -i '$a RAM_BOOT_UART_DL=1'  $ATF_DIR/configs/$ATF_CFG
+
+cat $ATF_DIR/configs/$ATF_CFG
 
 if grep -q "CONFIG_FLASH_DEVICE_EMMC=y" $ATF_DIR/configs/$ATF_CFG ; then
 	# No fixed-mtdparts or multilayout for EMMC
