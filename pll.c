@@ -105,7 +105,7 @@ void mtk_pll_init(int skip_dcm_setting)
 
 mmio_write_32(NET2PLL_CON1, 0x30000000); 
 mmio_write_32(MMPLL_CON1, 0x60000000); 
-mmio_write_32(NET1PLL1_CON1, 0x50000000); 
+mmio_write_32(NET1PLL1_CON1, 0x60000000); 
 
 
 NOTICE("ARMPLL_CON1 = 0x%x\n", mmio_read_32(ARMPLL_CON1));
