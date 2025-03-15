@@ -110,6 +110,8 @@ else
 	echo "fip build fail!"
 	exit 1
 fi
+
+find 
 if grep -Eq "(^_|CONFIG_TARGET_ALL_NO_SEC_BOOT=y)" "$ATF_DIR/configs/$ATF_CFG"; then
 	if [ -f "$ATF_DIR/build/${SOC}/release/bl2.img" ]; then
 		BL2_NAME="${SOC}_${BOARD}-bl2"
@@ -117,6 +119,5 @@ if grep -Eq "(^_|CONFIG_TARGET_ALL_NO_SEC_BOOT=y)" "$ATF_DIR/configs/$ATF_CFG"; 
 		echo "$BL2_NAME build done"
 	else
 		echo "bl2 build fail!"
-		exit 1
 	fi
 fi
