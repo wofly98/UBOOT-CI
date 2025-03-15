@@ -94,11 +94,22 @@ void mtk_pll_init(int skip_dcm_setting)
 	mmio_clrbits_32(MPLL_PWR_CON0, CON0_ISO_EN);
 
 	/* Set PLL frequency */
-	mmio_write_32(ARMPLL_CON1, 0x50000000); /* 1.3G */
+	mmio_write_32(ARMPLL_CON1, 0x82000000); /* 1.3G */
 
-	mmio_setbits_32(ARMPLL_CON0, 0x124); /* divider for 650M */
+	//mmio_setbits_32(ARMPLL_CON0, 0x124); /* divider for 650M */
 
 	//mmio_setbits_32(ARMPLL_CON0, 0x114); /* divider for 1.3G */
+
+mmio_clrbits_32(ARMPLL_CON0, 0x70); /* divider for >1.3G */
+mmio_setbits_32(ARMPLL_CON0, 0x124);
+
+NOTICE("ARMPLL_CON1 = 0x%x\n", mmio_read_32(ARMPLL_CON1));
+NOTICE("NET2PLL_CON1 = 0x%x\n", mmio_read_32(NET2PLL_CON1));
+NOTICE("MMPLL_CON1 = 0x%x\n", mmio_read_32(MMPLL_CON1));
+NOTICE("WEDMCUPLL_CON1 = 0x%x\n", mmio_read_32(WEDMCUPLL_CON1));
+NOTICE("NET1PLL1_CON1 = 0x%x\n", mmio_read_32(NET1PLL1_CON1));
+NOTICE("APLL2_CON1 = 0x%x\n", mmio_read_32(APLL2_CON1));
+NOTICE("MPLL_CON1 = 0x%x\n", mmio_read_32(MPLL_CON1));
 
 	mmio_setbits_32(NET2PLL_CON0, 0x114);
 	mmio_setbits_32(MMPLL_CON0, 0x124);
