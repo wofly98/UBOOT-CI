@@ -94,7 +94,7 @@ void mtk_pll_init(int skip_dcm_setting)
 	mmio_clrbits_32(MPLL_PWR_CON0, CON0_ISO_EN);
 
 	/* Set PLL frequency */
-	mmio_write_32(ARMPLL_CON1, 0x30000000); /* 1.3G */
+	mmio_write_32(ARMPLL_CON1, 0x50000000); /* 1.3G */
 
 	//mmio_setbits_32(ARMPLL_CON0, 0x124); /* divider for 650M */
 
@@ -103,9 +103,9 @@ void mtk_pll_init(int skip_dcm_setting)
 //mmio_clrbits_32(ARMPLL_CON0, 0x70); /* divider for >1.3G */
 //mmio_setbits_32(ARMPLL_CON0, 0x124);
 
-mmio_write_32(NET2PLL_CON1, 0x20000000); 
-mmio_write_32(MMPLL_CON1, 0x30000000); 
-mmio_write_32(NET1PLL1_CON1, 0x28000000); 
+//mmio_write_32(NET2PLL_CON1, 0x20000000); 
+//mmio_write_32(MMPLL_CON1, 0x30000000); 
+//mmio_write_32(NET1PLL1_CON1, 0x28000000); 
 
 
 NOTICE("ARMPLL_CON1 = 0x%x\n", mmio_read_32(ARMPLL_CON1));
